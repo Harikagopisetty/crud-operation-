@@ -17,8 +17,6 @@ public class EmployeeService {
 	}
 	public Employee updateEmployee(Employee empl) {
 		Optional<Employee> optional = employeeRepo.findById(empl.getId());
-
-		
 		if (optional.get()==null) {
 			
 			throw new ArithmeticException("id is not present");
@@ -38,5 +36,26 @@ public class EmployeeService {
 	public List<Employee> getAllStudents() {
 	  return employeeRepo.findAll();
 	}
+public List<Employee> getEmployeeByName(String name)
+{
+	return employeeRepo.findByName(name);
+}
+public List<Employee> orderByName()
+{
+	return employeeRepo.findByOrderByName();
+	}
+public List<Employee> orderByNameAsc()
+{
+	return employeeRepo.findByOrderByName();
+	}
+public List<Employee> startsWith(String name){
+	return employeeRepo.findByNameStartingWith(name);
+}
+public List<Employee> Containing(String name){
+	return employeeRepo.findByNameContaining(name);
+}
+public List<Employee> notContaining(String name){
+	return employeeRepo.findByNameNotContaining(name);
+}
 
 }

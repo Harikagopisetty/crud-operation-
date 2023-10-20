@@ -37,7 +37,37 @@ public List<Employee> get(){
 	
 	return employeeService.getAllStudents();
 }
+	@GetMapping("/getByName/{name}")
+	public List<Employee> getByName(@PathVariable(value="name") String name) 
+	{
+		return employeeService.getEmployeeByName(name);
+	}
+	@GetMapping("/orderByName")
 
+		public List<Employee> orderByName(){
+		return employeeService.orderByName();
+	}
+	@GetMapping("/orderByNameAsc")
+
+	public List<Employee> orderByNameAsc(){
+	return employeeService.orderByNameAsc();
+}	
+	@GetMapping("/startsWith/{name}")
+	public List<Employee> startsWith(@PathVariable(value="name") String name)
+	{
+	return employeeService.startsWith(name);	
 }
+	@GetMapping("/Containing/{name}")
+	public List<Employee> containing(@PathVariable(value="name") String name){
+		return employeeService.Containing(name);
+	}
+	@GetMapping("/notContaining/{name}")
+	public List<Employee> notContaining(@PathVariable (value = "name") String name){
+		return employeeService.notContaining(name);
+	} 
+}
+
+
+
 
 
